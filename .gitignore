@@ -1,0 +1,23 @@
+# Python environments
+.venv/
+.env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Build/system
+.pytest_cache/
+.mypy_cache/
+
+# Local artifacts and generated outputs
+artifacts/
+reports/*.tmp
+
+# Local data files (keep folder structure, ignore heavy MAT files)
+data/*.mat
+
+# IDE
+.vscode/
+.idea/

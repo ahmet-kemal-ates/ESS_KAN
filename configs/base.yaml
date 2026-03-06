@@ -1,0 +1,24 @@
+seed: 42
+
+data:
+  train_mat: "data/RW_train.mat"
+  test_mat: "data/RW_test.mat"
+  input_features: ["Iin_A", "Temp_C", "SoC_prev"]
+  target: "SoC_next"
+  val_ratio: 0.3
+
+train:
+  batch_size: 256
+  epochs: 200
+  lr: 0.001
+  weight_decay: 0.00001
+  early_stop_patience: 20
+
+model:
+  hidden_dims: [32, 32]
+  grid_size: 5
+  spline_order: 3
+  base_activation: "SiLU"
+
+runtime:
+  device: "cpu"

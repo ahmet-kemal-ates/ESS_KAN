@@ -1,0 +1,22 @@
+ESS_KAN RESEARCH TRACKER
+Last updated: 2026-03-06
+
+PAPERS
+- [1] EU RED II Directive.pdf
+- [2] online Hierarchical EMS (HEMS) for RECs.pdf
+- [3] A_White-Box_Equivalent_Neural_Network.pdf
+- [4] KAN Kolmogorov_Arnold Networks.pdf
+- Battery state of charge estimation for electric vehicle using.pdf
+
+REPOSITORIES
+- ESS_KAN (this repo): https://github.com/ahmet-kemal-ates/ESS_KAN
+- REC framework integration branch: https://github.com/CIPARLAB/REC_EMS_framework/tree/Ahmet-ENNC-integration
+- ENNC integration branch: https://github.com/ahmet-kemal-ates/ENNC/tree/ennc_integration_version
+- ENNC standalone latest branch: https://github.com/ahmet-kemal-ates/ENNC/tree/AhmetKemal
+- Awesome KAN list: https://github.com/mintisan/awesome-kan
+
+KAN IMPLEMENTATION CANDIDATES
+- efficient-kan: https://github.com/Blealtan/efficient-kan
+- pykan (reference): https://github.com/KindXiaoming/pykan
+- kan-polar (MATLAB reference): https://github.com/mpoluektov/kan-polar
+- fast-kan (speed-focused alternative): https://github.com/ZiyaoLi/fast-kan

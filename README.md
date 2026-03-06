@@ -11,7 +11,6 @@ Standalone KAN-based ESS model for one-step battery SoC prediction.
 
 ## Project Structure
 - `configs/base.yaml`: training and model config
-- `data/dataset_generator_RWx.py`: generator for train/test RW datasets
 - `src/data.py`: data loading + preprocessing
 - `src/model.py`: efficient-KAN model definition
 - `src/train.py`: training entrypoint
@@ -21,10 +20,10 @@ Standalone KAN-based ESS model for one-step battery SoC prediction.
 - `reports/rec_integration_spec.md`: REC integration mapping
 
 ## Dataset Provenance
-The included train/test MAT files are derived from NASA PCoE battery aging data, Randomized Battery Usage (RW profile family):
-- Source page: https://www.nasa.gov/intelligent-systems-division/discovery-and-systems-health/pcoe/pcoe-data-set-repository/
+The included train/test MAT files in `data/` were taken from:
+- https://github.com/ahmet-kemal-ates/ENNC/tree/AhmetKemal
 
-Included generated files in `data/`:
+Included files in `data/`:
 - `trainRW9.mat` (28296 samples)
 - `testRW9.mat` (20955 samples)
 - `trainRW10.mat` (28382 samples)
@@ -37,27 +36,6 @@ Included generated files in `data/`:
 MAT schema used by this project:
 - Train keys: `tr_Time, tr_Iin, tr_SoC, tr_Vout, Temp, Cn, Ts`
 - Test keys: `ts_Time, ts_Iin, ts_SoC, ts_Vout, Temp, Cn, Ts`
-
-## How the Dataset Generator Works
-Generator script: `data/dataset_generator_RWx.py`
-
-It does the following:
-1. Loads an RWx source MAT file (`m["data"].step`).
-2. Detects random-walk blocks from step comments containing `random walk` or `pulsed load`.
-3. Uses the first two RW blocks:
-   - block 1 -> train
-   - block 2 -> test
-4. Selects the first `n` charge/discharge pulses (`type` in `C`/`D`) per block.
-5. Resamples each pulse on a fixed grid (`Ts`, default `1.0 s`):
-   - current: zero-order hold
-   - voltage/temperature: linear interpolation
-6. Computes SoC by coulomb counting (`Cn`, default `2.1 Ah`), clipped to `[0,1]`.
-7. Saves ENNC-compatible MAT outputs (`trainRWx.mat`, `testRWx.mat`).
-
-Example generation command:
-```powershell
-python data/dataset_generator_RWx.py --rw path\to\RW9.mat --pulses 100 --Cn 2.1 --Ts 1.0 --outdir data --yes
-```
 
 ## Environment Setup (Windows, Conda)
 ```powershell

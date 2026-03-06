@@ -15,8 +15,9 @@ __pycache__/
 artifacts/
 reports/*.tmp
 
-# Local data files (keep folder structure, ignore heavy MAT files)
-data/*.mat
+# Local intermediate data folders
+data/raw/
+data/processed/
 
 # IDE
 .vscode/

@@ -80,6 +80,12 @@ Output:
 python -c "from src.runtime_wrapper import ESSKANRuntime; rt=ESSKANRuntime.from_artifact_dir('artifacts/run_YYYYMMDD_HHMMSS'); print(rt.predict_next_soc(2.0,25.0,0.65))"
 ```
 
+## References
+- KAN implementation used in this project: https://github.com/Blealtan/efficient-kan
+- Reference paper:  
+  "Battery state of charge estimation for electric vehicle using Kolmogorov-Arnold networks"  
+  https://www.sciencedirect.com/science/article/pii/S0360544224031931
+
 ## Reproducibility Notes
 - `requirements.txt` pins core package versions used in this project
 - `efficient-kan` is pinned by Git commit
